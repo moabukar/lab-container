@@ -1,0 +1,45 @@
+name: devops-toolbox
+
+on:
+  push:
+    paths:
+      - .github/workflows/ci.yml
+      - Dockerfile
+      - build/binaries.sh
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+
+    steps:
+    - name: Check out
+      uses: actions/checkout@v2
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build and Publish
+      run: |
+        registry="moabukar"
+        sha=$(git rev-parse --short HEAD)
+        primary_tag="${registry}/devops-toolbox:${sha}"
+
+        docker build -t $primary_tag -f Dockerfile .
+        docker push $primary_tag
+
+        current_branch=$(git rev-parse --abbrev-ref HEAD)
+        if [ "$current_branch" = "main" ]; then
+          retention_tag="${registry}/devops-toolbox:rc-${sha}"
+          docker tag $primary_tag $retention_tag
+          docker push $retention_tag
+        else
+          retention_tag="${registry}/devops-toolbox:alpha-${sha}"
+          docker tag $primary_tag $retention_tag
+          docker push $retention_tag
+        fi
