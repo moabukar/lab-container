@@ -1,0 +1,30 @@
+# Ignore local environment files
+.env
+.DS_Store
+*.log
+*.swp
+
+# Ignore Git & project metadata
+.git
+.gitignore
+README.md
+
+# Ignore build directories & compiled code
+build/
+bin/
+obj/
+dist/
+target/
+*.out
+
+# Ignore dependencies (if you ever mount them)
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore Docker cache files
+.dockerignore
+Dockerfile.old
+Dockerfile.backup

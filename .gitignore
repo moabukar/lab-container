@@ -1,2 +1,33 @@
+# Ignore local environment files
 .env
 .DS_Store
+*.log
+*.swp
+
+# Ignore Docker build artifacts
+.dockerignore
+Dockerfile.old
+Dockerfile.backup
+*.tar
+*.img
+
+# Ignore compiled binaries & build directories
+build/
+bin/
+obj/
+dist/
+target/
+*.out
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore Kubernetes manifests that may have secrets
+k8s/secrets.yaml
+helm/values.yaml
+
+# Ignore dependencies (if you ever add package managers)
+node_modules/
+vendor/
