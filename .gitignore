@@ -12,7 +12,7 @@ Dockerfile.backup
 *.img
 
 # Ignore compiled binaries & build directories
-build/
+# build/
 bin/
 obj/
 dist/
