@@ -28,6 +28,9 @@ RUN chmod +x /build/binaries.sh && /build/binaries.sh
 RUN strip --strip-unneeded /usr/local/bin/* || true
 RUN upx --best --lzma /usr/local/bin/* || true
 
+################################################################################
+# Final image
+################################################################################
 FROM alpine:3.19
 
 LABEL maintainer="moabukar" \
