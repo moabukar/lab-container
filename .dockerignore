@@ -10,7 +10,7 @@
 README.md
 
 # Ignore build directories & compiled code
-build/
+# build/
 bin/
 obj/
 dist/
