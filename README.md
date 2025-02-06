@@ -20,10 +20,9 @@ docker push moabukar/devops-toolbox:latest
 ## Usage
 
 ```bash
-docker run --rm -it moabukar/devops-toolbox zsh
+docker run --rm -it moabukar/devops-toolbox:fbccea7 zsh
 
-
-kubectl run toolbox --image=moabukar/devops-toolbox:latest -- sleep infinity
+kubectl run toolbox --image=moabukar/devops-toolbox:fbccea7 -- sleep infinity
 kubectl exec -it toolbox -- zsh
 
 # Inside the container:
