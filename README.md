@@ -1,18 +1,14 @@
 # DevOps Toolbox 🛠️
 
-A lightweight container optimized for DevOps labs. Includes essential CLI tools like Terraform, Vault, AWS CLI, Kubernetes tools, Helm, Kind, and more.
+A lightweight container optimised for DevOps labs. Includes essential CLI tools like Terraform, Vault, AWS CLI, Kubernetes tools, Helm, Kind, and more.
 
 ## Building
 
 ```bash
-# Build the image
 docker build -t moabukar/devops-toolbox .
 
-# Tag for versioning
 docker tag moabukar/devops-toolbox moabukar/devops-toolbox:v1.0.0
 
-# Push to Docker Hub
-docker push moabukar/devops-toolbox:v1.0.0
 docker push moabukar/devops-toolbox:latest
 
 ```
